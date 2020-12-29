@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:background_fetch/background_fetch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -90,29 +92,73 @@ class _SplashPageState extends State<SplashPage> {
     });
     return first;
   }
+  void checkInternetConnectionAndNavigate()async{
+    SharedPreferences pref=await SharedPreferences.getInstance();
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        getUserLocation();
+        setState(() {
+          isLoading=false;
+        });
+
+      }else if(pref.getDouble('latitude')!=null && pref.getDouble('longitude')!=null){
+        setState(() {
+          isLoading=false;
+        });
+        return;
+      }else{
+        print('dfkdfd');
+
+      }
+    } on SocketException catch (_) {
+      print('not connected');
+      print(pref.getDouble('latitude'));
+      if(pref.getDouble('latitude')!=null && pref.getDouble('longitude')!=null){
+        setState(() {
+          isLoading=false;
+        });
+      }else
+      setState(() {
+        isLoading=true;
+      });
+      showInSnackBar("You don't have internet connection");
+
+    }
+  }
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  void showInSnackBar(String value) {
+    _scaffoldKey.currentState.showSnackBar(new SnackBar(content: new Text(value)));
+  }
   @override
   void initState() {
     // TODO: implement initStat
-    getUserLocation();
+    checkInternetConnectionAndNavigate();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SplashScreen(
-        seconds: 4,
-        navigateAfterSeconds:currentAddress!=null?Home():SplashPage(),
-       /* title: new Text('',
-          style: new TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20.0
-          ),),*/
-        image: Image.asset("assets/spalc.png"),
-        backgroundColor: Colors.black,
-        styleTextUnderTheLoader: new TextStyle(),
-        photoSize: 200.0,
-        onClick: ()=>print("Flutter Egypt"),
-        loaderColor: Color(0xffffbd59)
+    return Scaffold(
+      key: _scaffoldKey,
+      body: SplashScreen(
+            seconds: isLoading?120:4,
+            navigateAfterSeconds:isLoading?SplashPage():Home(),
+            /* title: new Text('',
+            style: new TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0
+            ),),*/
+
+            image: Image.asset("assets/spalc.png"),
+            backgroundColor: Colors.black,
+            styleTextUnderTheLoader: new TextStyle(),
+            photoSize: 200.0,
+            onClick: ()=>print("Flutter Egypt"),
+            loaderColor: Color(0xffffbd59)
+
+      ),
     );
   }
 }

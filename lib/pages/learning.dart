@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muttaqi/pages/salat_rules_html.dart';
+import 'package:muttaqi/widgets/learningcart.dart';
 
 class Learning extends StatefulWidget {
   @override
@@ -10,60 +11,17 @@ class _LearningState extends State<Learning> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: ListView(
         children: [
-          GestureDetector(
-            onTap: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => WebViewLoad()),
-              );
-            },
-            child: Card(
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                children: [
-                  // ListTile(
-                  //   leading: Icon(Icons.arrow_drop_down_circle),
-                  //   title: const Text('Card title 1'),
-                  //   subtitle: Text(
-                  //     'Secondary Text',
-                  //     style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  //   ),
-                  // ),
-                  Image.asset('assets/stepspic.png'),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
-                      style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                    ),
-                  ),
-                  // ButtonBar(
-                  //   alignment: MainAxisAlignment.start,
-                  //   children: [
-                  //     FlatButton(
-                  //       textColor: const Color(0xFF6200EE),
-                  //       onPressed: () {
-                  //         // Perform some action
-                  //       },
-                  //       child: const Text('ACTION 1'),
-                  //     ),
-                  //     FlatButton(
-                  //       textColor: const Color(0xFF6200EE),
-                  //       onPressed: () {
-                  //         // Perform some action
-                  //       },
-                  //       child: const Text('ACTION 2'),
-                  //     ),
-                  //   ],
-                  // ),
-
-                  //Image.asset('assets/stepspic.png'),
-                ],
-              ),
-            ),
-          ),
+          LearningCart("How to perform Five salah Step by Step","Learn details by Taping this","assets/stepspic.png",
+              "The primary purpose of salah is to act as a person's communication with Allah."
+                  "Purification of the heart is the ultimate religious objective of Salah. "
+                  "Via namaz, a believer can grow closer to Allah and in turn strengthen their faith. "
+                  "Just as humans physically require food and supplement to stay healthy and alive, "
+                  "the soul requires prayer and closeness to God to stay sustained and healthy. "
+                  "In short, it spiritually sustains the human soul.", ()=>WebViewLoad()),
+          //LearningCart("assets/stepspic.png", "this is a test", ()=>WebViewLoad()),
         ],
       )
     );

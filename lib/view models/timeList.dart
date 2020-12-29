@@ -7,14 +7,14 @@ class PrayerTime{
     SharedPreferences pref=await SharedPreferences.getInstance();
     double latitude=pref.getDouble('latitude');
     double longitude=pref.getDouble('longitude');
-    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(),CalculationMethod.KARACHI);
+    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(),CalculationMethod.MUSLIM_WORLD_LEAGUE);
     return await adhan.fajr;
   }
   Future<DateTime> getTodayDhurTime() async {
     SharedPreferences pref=await SharedPreferences.getInstance();
     double latitude=pref.getDouble('latitude');
     double longitude=pref.getDouble('longitude');
-    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.KARACHI);
+    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.MUSLIM_WORLD_LEAGUE);
     return await adhan.dhuhr; 
   }
 
@@ -22,21 +22,21 @@ class PrayerTime{
     SharedPreferences pref=await SharedPreferences.getInstance();
     double latitude=pref.getDouble('latitude');
     double longitude=pref.getDouble('longitude');
-    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.KARACHI);
+    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.MUSLIM_WORLD_LEAGUE);
     return await adhan.asr;
   }
   Future<DateTime> getTodayMagribTime() async {
     SharedPreferences pref=await SharedPreferences.getInstance();
     double latitude=pref.getDouble('latitude');
     double longitude=pref.getDouble('longitude');
-    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.KARACHI);
+    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.MUSLIM_WORLD_LEAGUE);
     return await adhan.maghrib;
   }
   Future<DateTime> getTodayEshaTime() async {
     SharedPreferences pref=await SharedPreferences.getInstance();
     double latitude=pref.getDouble('latitude');
     double longitude=pref.getDouble('longitude');
-    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.KARACHI);
+    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.MUSLIM_WORLD_LEAGUE);
     return await adhan.isha;
   }
 

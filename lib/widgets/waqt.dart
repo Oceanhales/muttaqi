@@ -16,7 +16,7 @@ class Waqt extends StatefulWidget {
 
 class _WaqtState extends State<Waqt> {
   String _timeString;
-  double fajar,dhur,asr,magrib,isha;
+  double fajar,dhur,asr,magrib,isha,tahajjud;
   String currentPrayer;
   int endTime=0;
 

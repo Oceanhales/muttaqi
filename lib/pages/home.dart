@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:muttaqi/pages/learning.dart';
 import 'package:muttaqi/pages/salat_rules_html.dart';
+import 'package:muttaqi/pages/tasbih.dart';
 import 'package:muttaqi/view%20models/timeList.dart';
 import 'package:muttaqi/widgets/salateTime.dart';
 import 'package:muttaqi/widgets/waqt.dart';
@@ -45,8 +46,9 @@ Future <dynamic> alarmManageCall(String taskId)async{
 void getTimeWaqt(String name){
   if(name.trim()=='Fajr'){
     PrayerTime().getTodayFajrTime().then((value) {
-      if(value.isAtSameMomentAs(DateTime.now()) ||
-          (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)){
+      if(value.isAtSameMomentAs(DateTime.now())
+          //|| (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)
+      ){
         _HomeState()._showNotification("It's Fajr Time", "Whoever prays the Fajr prayer, he or she is then under Allah’s protection. So beware, O son or daughter of Adam, that Allah does not call you to account for being absent from His protection for any reason.");
       }else{
         return;
@@ -55,7 +57,9 @@ void getTimeWaqt(String name){
 
   }else if(name.trim()=='Dhuhr'){
     PrayerTime().getTodayDhurTime().then((value) {
-      if(value.isAtSameMomentAs(DateTime.now()) || (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)){
+      if(value.isAtSameMomentAs(DateTime.now())
+          //|| (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)
+      ){
         _HomeState()._showNotification("It's Dhuhr Time", "“Whoever observes the practice of performing four Rakat before Zuhr prayer and four (2 sunnah, 2 nafl) after the zuhr prayer, Allah will send him against the Fire (of Hell).” (Tirmidhi)");
       }else{
         return;
@@ -64,7 +68,9 @@ void getTimeWaqt(String name){
   }else if(name.trim()=='Asr'){
     print("sdjhj");
     PrayerTime().getTodayAsrTime().then((value) {
-      if(value.isAtSameMomentAs(DateTime.now()) || (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)){
+      if(value.isAtSameMomentAs(DateTime.now())
+          //|| (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)
+      ){
         _HomeState()._showNotification("It's Asr Time", "“He who observes Al-Bardan (i.e. Fajr and Asr prayers) will enter Jannah.” (Bukhari)");
       }else{
         return;
@@ -72,7 +78,9 @@ void getTimeWaqt(String name){
     });
   }else if(name.trim()=='Magrib'){
     PrayerTime().getTodayMagribTime().then((value) {
-      if(value.isAtSameMomentAs(DateTime.now()) || (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1) ){
+      if(value.isAtSameMomentAs(DateTime.now())
+          //|| (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)
+      ){
         _HomeState()._showNotification("It's Magrib Time", "Allah Almighty showers all His blessings and rewards on those who offer Maghrib prayer. Allah (SWT) will fulfill all your wishes and Duas. Allah Almighty will give you success in wealth and family.");
       }else{
         return;
@@ -80,7 +88,9 @@ void getTimeWaqt(String name){
     });
   }else if(name.trim()=='Isha'){
     PrayerTime().getTodayEshaTime().then((value) {
-      if(value.isAtSameMomentAs(DateTime.now()) || (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)){
+      if(value.isAtSameMomentAs(DateTime.now())
+          //|| (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)
+      ){
         _HomeState()._showNotification("It's Isha Time", "If you offer Isha prayer, Allah will reward you to worship Allah for half night. It is a great blessing for you. So, make sure to never miss the Isha prayer. Try to make more dua’s after the Isha prayer, Allah listen dua’s and will shower His blessings on you. If you offer the prayer before going to sleep, you have a more peaceful night. So, try to offer Isha prayer regularly.");
       }else{
         return;
@@ -222,11 +232,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
           child: TabBarView(
             controller: _tabController,
             children: [
-             Waqt(),
+              Waqt(),
               SalatTime(),
               Learning(),
-              //WebViewLoad(),
-              Icon(Icons.timer),
+              TasbihPage()
             ],
           ),
         ),
