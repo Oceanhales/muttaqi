@@ -24,7 +24,7 @@ class _SalatTimeState extends State<SalatTime> {
   bool checkFajr=false;
   bool checkDhuhr=false;
   bool checkAsr=false;
-  bool checkMagrib=false;
+  bool checkMaghrib=false;
   bool checkIsha=false;
 
   Future setDataToSharedPrefrence(String name,bool val)async{
@@ -44,7 +44,7 @@ class _SalatTimeState extends State<SalatTime> {
     getStoredData('Fajr').then((value) => value!=null?checkFajr=value:print(value));
     getStoredData('Dhuhr').then((value) => value!=null?checkDhuhr=value:print(value));
     getStoredData('Asr').then((value) => value!=null?checkAsr=value:print(value));
-    getStoredData('Magrib').then((value) => value!=null?checkMagrib=value:print(value));
+    getStoredData('Maghrib').then((value) => value!=null?checkMaghrib=value:print(value));
     getStoredData('Isha').then((value) => value!=null?checkIsha=value:print(value));
     super.initState();
   }
@@ -102,7 +102,7 @@ class _SalatTimeState extends State<SalatTime> {
           Padding(
             padding: const EdgeInsets.all(1.0),
             child: FutureBuilder(
-              future:prayerTime.getTodayDhurTime(),
+              future:prayerTime.getTodayDhuhrTime(),
               builder: (context, AsyncSnapshot<DateTime> snapshot) {
                 if (snapshot.hasData) {
                   final dateTime = snapshot.data.toLocal();
@@ -194,7 +194,7 @@ class _SalatTimeState extends State<SalatTime> {
           Padding(
             padding: const EdgeInsets.all(1.0),
             child: FutureBuilder(
-              future: prayerTime.getTodayMagribTime(),
+              future: prayerTime.getTodayMaghribTime(),
               builder: (context, AsyncSnapshot<DateTime> snapshot) {
                 if (snapshot.hasData) {
                   final dateTime = snapshot.data.toLocal();
@@ -217,11 +217,11 @@ class _SalatTimeState extends State<SalatTime> {
                           ),),
                         ),
                         trailing: CupertinoSwitch(
-                          value: checkMagrib,
+                          value: checkMaghrib,
                           onChanged: (bool val) {
                            setState(() {
-                             checkMagrib=val;
-                             setDataToSharedPrefrence('Magrib',val);
+                             checkMaghrib=val;
+                             setDataToSharedPrefrence('Maghrib',val);
                            });
                           },
                           activeColor: Color(0xff65D1BA),
@@ -240,7 +240,7 @@ class _SalatTimeState extends State<SalatTime> {
           Padding(
             padding: const EdgeInsets.all(1.0),
             child: FutureBuilder(
-              future:prayerTime.getTodayEshaTime(),
+              future:prayerTime.getTodayIshaTime(),
               builder: (context, AsyncSnapshot<DateTime> snapshot) {
                 if (snapshot.hasData) {
                   final dateTime = snapshot.data.toLocal();

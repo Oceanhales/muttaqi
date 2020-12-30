@@ -10,7 +10,7 @@ class PrayerTime{
     final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(),CalculationMethod.MUSLIM_WORLD_LEAGUE);
     return await adhan.fajr;
   }
-  Future<DateTime> getTodayDhurTime() async {
+  Future<DateTime> getTodayDhuhrTime() async {
     SharedPreferences pref=await SharedPreferences.getInstance();
     double latitude=pref.getDouble('latitude');
     double longitude=pref.getDouble('longitude');
@@ -25,14 +25,14 @@ class PrayerTime{
     final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.MUSLIM_WORLD_LEAGUE);
     return await adhan.asr;
   }
-  Future<DateTime> getTodayMagribTime() async {
+  Future<DateTime> getTodayMaghribTime() async {
     SharedPreferences pref=await SharedPreferences.getInstance();
     double latitude=pref.getDouble('latitude');
     double longitude=pref.getDouble('longitude');
     final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.MUSLIM_WORLD_LEAGUE);
     return await adhan.maghrib;
   }
-  Future<DateTime> getTodayEshaTime() async {
+  Future<DateTime> getTodayIshaTime() async {
     SharedPreferences pref=await SharedPreferences.getInstance();
     double latitude=pref.getDouble('latitude');
     double longitude=pref.getDouble('longitude');

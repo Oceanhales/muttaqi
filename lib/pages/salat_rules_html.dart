@@ -3,6 +3,10 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class WebViewLoad extends StatefulWidget {
 
+  final String assetHTML;
+
+  const WebViewLoad({Key key, this.assetHTML}) : super(key: key);
+
 
   WebViewLoadUI createState() => WebViewLoadUI();
 
@@ -29,7 +33,8 @@ class WebViewLoadUI extends State<WebViewLoad>{
       body:InAppWebView(
         //initialUrl: "https://flutter.dev/",
         initialHeaders: {},
-        initialFile: 'assets/Fivesalah.html',
+        initialFile: widget.assetHTML,
+        //'assets/Fivesalah.html',
         initialOptions: InAppWebViewGroupOptions(
             crossPlatform: InAppWebViewOptions(
               debuggingEnabled: true,

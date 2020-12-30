@@ -1,4 +1,3 @@
-
 import 'package:background_fetch/background_fetch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,7 +17,7 @@ class Home extends StatefulWidget {
 }
 Future <dynamic> alarmManageCall(String taskId)async{
   SharedPreferences prefs=await SharedPreferences.getInstance();
-  List<String> prayerName=['Fajr','Dhuhr','Asr','Magrib','Isha'];
+  List<String> prayerName=['Fajr','Dhuhr','Asr','Maghrib','Isha'];
   for(int i=0;i<prayerName.length;i++){
     print(prayerName[i]);
     bool checkSetAlarm=prefs.getBool(prayerName[i]);
@@ -56,7 +55,7 @@ void getTimeWaqt(String name){
     });
 
   }else if(name.trim()=='Dhuhr'){
-    PrayerTime().getTodayDhurTime().then((value) {
+    PrayerTime().getTodayDhuhrTime().then((value) {
       if(value.isAtSameMomentAs(DateTime.now())
           //|| (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)
       ){
@@ -77,7 +76,7 @@ void getTimeWaqt(String name){
       }
     });
   }else if(name.trim()=='Magrib'){
-    PrayerTime().getTodayMagribTime().then((value) {
+    PrayerTime().getTodayMaghribTime().then((value) {
       if(value.isAtSameMomentAs(DateTime.now())
           //|| (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)
       ){
@@ -87,7 +86,7 @@ void getTimeWaqt(String name){
       }
     });
   }else if(name.trim()=='Isha'){
-    PrayerTime().getTodayEshaTime().then((value) {
+    PrayerTime().getTodayIshaTime().then((value) {
       if(value.isAtSameMomentAs(DateTime.now())
           //|| (-1<DateTime.now().difference(value).inMinutes && DateTime.now().difference(value).inMinutes<1)
       ){

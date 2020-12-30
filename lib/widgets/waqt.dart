@@ -16,7 +16,7 @@ class Waqt extends StatefulWidget {
 
 class _WaqtState extends State<Waqt> {
   String _timeString;
-  double fajar,dhur,asr,magrib,isha,tahajjud;
+  double fajar,dhuhr,asr,maghrib,isha;
   String currentPrayer;
   int endTime=0;
 
@@ -30,9 +30,9 @@ class _WaqtState extends State<Waqt> {
         fajar=(value.microsecondsSinceEpoch +1000*60)/1000;
       });
     });
-    prayerTime.getTodayDhurTime().then((value) {
+    prayerTime.getTodayDhuhrTime().then((value) {
       setState(() {
-        dhur=(value.microsecondsSinceEpoch +1000*60)/1000;
+        dhuhr=(value.microsecondsSinceEpoch +1000*60)/1000;
       });
     });
     prayerTime.getTodayAsrTime().then((value) {
@@ -41,13 +41,13 @@ class _WaqtState extends State<Waqt> {
         asr=(value.microsecondsSinceEpoch +1000*60)/1000;
       });
     });
-    prayerTime.getTodayMagribTime().then((value) {
+    prayerTime.getTodayMaghribTime().then((value) {
 
       setState(() {
-        magrib=(value.microsecondsSinceEpoch +1000*60)/1000;
+        maghrib=(value.microsecondsSinceEpoch +1000*60)/1000;
       });
     });
-    prayerTime.getTodayEshaTime().then((value) {
+    prayerTime.getTodayIshaTime().then((value) {
       setState(() {
         isha=(value.microsecondsSinceEpoch +1000*60)/1000;
       });
@@ -83,7 +83,7 @@ class _WaqtState extends State<Waqt> {
   Widget build(BuildContext context) {
     if(currentPrayer=='FAJR'){
       setState(() {
-        endTime=dhur.toInt();
+        endTime=dhuhr.toInt();
       });
     }else if(currentPrayer=='DHUHR'){
       setState(() {
@@ -91,7 +91,7 @@ class _WaqtState extends State<Waqt> {
       });
     }else if(currentPrayer=='ASR'){
       setState(() {
-        endTime=magrib.toInt();
+        endTime=maghrib.toInt();
       });
     }else if(currentPrayer=='MAGHRIB'){
       setState(() {

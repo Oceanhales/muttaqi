@@ -20,7 +20,7 @@ class _LearningState extends State<Learning> {
                   "Via namaz, a believer can grow closer to Allah and in turn strengthen their faith. "
                   "Just as humans physically require food and supplement to stay healthy and alive, "
                   "the soul requires prayer and closeness to God to stay sustained and healthy. "
-                  "In short, it spiritually sustains the human soul.", ()=>WebViewLoad()),
+                  "In short, it spiritually sustains the human soul.", ()=>WebViewLoad(assetHTML:'assets/Fivesalah.html',)),
           //LearningCart("assets/stepspic.png", "this is a test", ()=>WebViewLoad()),
         ],
       )
