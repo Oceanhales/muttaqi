@@ -2,8 +2,9 @@ import 'package:background_fetch/background_fetch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:muttaqi/pages/learning.dart';
-import 'package:muttaqi/pages/salat_rules_html.dart';
+import 'package:muttaqi/pages/knowledge';
+import 'package:muttaqi/pages/more.dart';
+import 'file:///E:/flutter/muttaqi/lib/widgets/load_html.dart';
 import 'package:muttaqi/pages/tasbih.dart';
 import 'package:muttaqi/view%20models/timeList.dart';
 import 'package:muttaqi/widgets/salateTime.dart';
@@ -191,7 +192,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
         onSelectNotification: notificationSelected);
 
     initPlatformState();
-    _tabController = TabController(length: 4, vsync: this, initialIndex: 0);
+    _tabController = TabController(length: 3, vsync: this, initialIndex: 0);
     _tabController.addListener(_handleTabIndex);
 
   }
@@ -210,7 +211,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColor,
@@ -220,9 +221,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
             indicatorWeight: 3.0,
             tabs: [
               Tab(icon: Icon(Icons.access_time), text: 'Waqt',),
-              Tab(icon: Icon(Icons.alarm), text: 'Times'),
-              Tab(icon: Icon(Icons.article_sharp), text: 'Learnings'),
-              Tab(icon: Icon(Icons.timer), text: 'Tasbih '),
+              Tab(icon: Icon(Icons.alarm), text: 'Prayer Times'),
+             // Tab(icon: Icon(Icons.article_sharp), text: 'Learnings'),
+              Tab(icon: Icon(Icons.apps), text: 'More '),
             ],
           ),
         ),
@@ -233,8 +234,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
             children: [
               Waqt(),
               SalatTime(),
-              Learning(),
-              TasbihPage()
+             // Learning(),
+              MoreScreen()
             ],
           ),
         ),

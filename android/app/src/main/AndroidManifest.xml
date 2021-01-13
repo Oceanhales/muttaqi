@@ -8,11 +8,11 @@
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
    <application
         tools:replace="android:label"
-        android:name=".Application"
+        android:name="com.nittodigital.muttaqi.Application"
         android:label="Muttaqi"
         android:icon="@mipmap/muttaqi">
         <activity
-            android:name=".MainActivity"
+            android:name="com.nittodigital.muttaqi.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -40,8 +40,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-       <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
-       <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
+       <receiver android:name="com.nittodigital.muttaqi.ScheduledNotificationReceiver" />
+       <receiver android:name="com.nittodigital.muttaqi.ScheduledNotificationBootReceiver">
            <intent-filter>
                <action android:name="android.intent.action.BOOT_COMPLETED"/>
                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>

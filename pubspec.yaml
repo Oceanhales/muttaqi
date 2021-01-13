@@ -43,6 +43,9 @@ dependencies:
   background_fetch: ^0.5.1
   splashscreen: 1.2.0
   flutter_inappwebview: ^4.0.0+4
+  timezone: ^0.5.9
+  flutter_native_timezone: ^1.0.4
+  advance_pdf_viewer: ^1.2.1+2
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +69,7 @@ flutter:
   assets:
     - assets/spalc.png
     - assets/
+    - assets/bukhari/
     - assets/Fivesalah.html
 
   # An image asset can refer to one or more resolution-specific "variants", see

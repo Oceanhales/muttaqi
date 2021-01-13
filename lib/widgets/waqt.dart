@@ -126,74 +126,80 @@ class _WaqtState extends State<Waqt> {
               child: Container(height: MediaQuery.of(context).size.height*.4,),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.alarm_off_outlined,color: Colors.white,size: 30,),
-                    onPressed: (){
-                      print("alarm set");
-                      // Wanted to change the icon if onpressed to Icons.alarm_off_outlined
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(1.0),
-                    child: Text("Sehri",style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'SourceSansPro'
-                    ),),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: Text("5:11 AM",style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'SourceSansPro'
-                    ),),
-                  ),
-                ],
-              ),
-              Text(_timeString.toString(), style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 50.0,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'SourceSansPro'
-              ),),
-              Column(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.alarm,color: Colors.white,size: 30,),
-                    onPressed: (){
-                      print("alarm set");
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(1.0),
-                    child: Text("Ifter",style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'SourceSansPro'
-                    ),),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: Text("5:13 PM",style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'SourceSansPro'
-                    ),),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          Text(_timeString.toString(), style: TextStyle(
+              color: Colors.white,
+              fontSize: 50.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'SourceSansPro'
+          ),),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     Column(
+          //       children: [
+          //         IconButton(
+          //           icon: Icon(Icons.alarm_off_outlined,color: Colors.white,size: 30,),
+          //           onPressed: (){
+          //             print("alarm set");
+          //             // Wanted to change the icon if onpressed to Icons.alarm_off_outlined
+          //           },
+          //         ),
+          //         Padding(
+          //           padding: const EdgeInsets.all(1.0),
+          //           child: Text("Sehri",style: TextStyle(
+          //               color: Colors.white,
+          //               fontSize: 18.0,
+          //               fontWeight: FontWeight.bold,
+          //               fontFamily: 'SourceSansPro'
+          //           ),),
+          //         ),
+          //         Padding(
+          //           padding: const EdgeInsets.all(3.0),
+          //           child: Text("5:11 AM",style: TextStyle(
+          //               color: Colors.white,
+          //               fontSize: 18.0,
+          //               fontWeight: FontWeight.bold,
+          //               fontFamily: 'SourceSansPro'
+          //           ),),
+          //         ),
+          //       ],
+          //     ),
+          //     Text(_timeString.toString(), style: TextStyle(
+          //         color: Colors.white,
+          //         fontSize: 50.0,
+          //         fontWeight: FontWeight.bold,
+          //         fontFamily: 'SourceSansPro'
+          //     ),),
+          //     Column(
+          //       children: [
+          //         IconButton(
+          //           icon: Icon(Icons.alarm,color: Colors.white,size: 30,),
+          //           onPressed: (){
+          //             print("alarm set");
+          //           },
+          //         ),
+          //         Padding(
+          //           padding: const EdgeInsets.all(1.0),
+          //           child: Text("Ifter",style: TextStyle(
+          //               color: Colors.white,
+          //               fontSize: 18.0,
+          //               fontWeight: FontWeight.bold,
+          //               fontFamily: 'SourceSansPro'
+          //           ),),
+          //         ),
+          //         Padding(
+          //           padding: const EdgeInsets.all(3.0),
+          //           child: Text("5:13 PM",style: TextStyle(
+          //               color: Colors.white,
+          //               fontSize: 18.0,
+          //               fontWeight: FontWeight.bold,
+          //               fontFamily: 'SourceSansPro'
+          //           ),),
+          //         ),
+          //       ],
+          //     ),
+          //   ],
+          // ),
 
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -286,7 +292,7 @@ class _WaqtState extends State<Waqt> {
     SharedPreferences pref=await SharedPreferences.getInstance();
     double latitude=pref.getDouble('latitude');
     double longitude=pref.getDouble('longitude');
-    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.KARACHI);
+    final adhan = AdhanFlutter.create(Coordinates(latitude, longitude), DateTime.now(), CalculationMethod.MUSLIM_WORLD_LEAGUE);
     return await adhan.currentPrayer();
   }
 }

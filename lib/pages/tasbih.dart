@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class TasbihPage extends StatefulWidget{
+class TasbihView extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -10,7 +10,7 @@ class TasbihPage extends StatefulWidget{
 
 }
 
-class makeItRainState extends State<TasbihPage> {
+class makeItRainState extends State<TasbihView> {
   int _tashbehCount = 0;
 
   // void counter() {
@@ -33,6 +33,11 @@ class makeItRainState extends State<TasbihPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Tasbih"),
+        elevation: 0,
+      ),
       backgroundColor: Theme.of(context).primaryColor,
       body: new Container(
           child : new Column(

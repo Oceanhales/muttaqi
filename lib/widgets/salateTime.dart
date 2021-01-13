@@ -1,12 +1,9 @@
 import 'dart:math';
-
-import 'package:adhan_flutter/adhan_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:intl/intl.dart';
 import 'package:muttaqi/view%20models/timeList.dart';
-import 'package:muttaqi/widgets/alarm_item.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spinner/spinner.dart';
 class SalatTime extends StatefulWidget {
@@ -202,7 +199,7 @@ class _SalatTimeState extends State<SalatTime> {
                     padding: EdgeInsets.all(15),
                     child: ListTile(
                       //onTap: ()=>setAlarmDailog(context,DateTime.parse(dateTime.toString())),
-                        title:  Text("Magrib", style: TextStyle(
+                        title:  Text("Maghrib", style: TextStyle(
                             color: Colors.white,
                             fontSize: 30.0,
                             fontWeight: FontWeight.bold,
@@ -396,7 +393,7 @@ class _SalatTimeState extends State<SalatTime> {
     return Spinner(
         containerCount: adjustTime.length,
         containerSize: 100.0,
-        //animationSpeed: 40,
+        animationSpeed: 40,
         builder:(index){
           var color =
               (cos((2 * pi) * index /adjustTime.length ) + 1) / 2 * 255;
