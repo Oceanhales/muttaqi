@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:muttaqi/pages/bangla_hadith.dart';
 import 'package:muttaqi/pages/english_hadith.dart';
-import 'package:muttaqi/pages/more.dart';
-import 'file:///E:/flutter/muttaqi/lib/widgets/load_html.dart';
-import 'package:muttaqi/widgets/salateTime.dart';
-import 'package:muttaqi/widgets/waqt.dart';
+
 
 class Hadith extends StatefulWidget {
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'file:///E:/flutter/muttaqi/lib/widgets/load_html.dart';
 import 'package:muttaqi/widgets/custom_list.dart';
 import 'package:muttaqi/widgets/load_pdf.dart';
 
@@ -43,29 +42,15 @@ class _BukhariBngState extends State<BukhariBng> {
         backgroundColor: Theme.of(context).primaryColor,
         body: ListView(
           children: [
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            CustomList("সহীহ আল বুখারী ভলিউম ১","Read details", ()=>PDFViewLoadasset(assetPdf: 'assets/bukhari/Sahih-Bukharipart-01.pdf')),
-            // CustomList("সহীহ আল বুখারী ভলিউম ২","Read details", ()=>PDFViewLoad(assetPdf: 'assets/bukhari/Sahih-Bukharipart-02.pdf')),
-            // CustomList("সহীহ আল বুখারী ভলিউম ৩","Read details", ()=>PDFViewLoad(assetPdf: 'assets/bukhari/Sahih-Bukharipart-03.pdf')),
-            // CustomList("সহীহ আল বুখারী ভলিউম ৪","Read details", ()=>PDFViewLoad(assetPdf: 'assets/bukhari/Sahih-Bukharipart-04.pdf')),
-            // CustomList("সহীহ আল বুখারী ভলিউম ৫","Read details", ()=>PDFViewLoad(assetPdf: 'assets/bukhari/Sahih-Bukharipart-05.pdf')),
-            // CustomList("সহীহ আল বুখারী ভলিউম ৬","Read details", ()=>PDFViewLoad(assetPdf: 'assets/bukhari/Sahih-Bukharipart-06.pdf')),
-            // CustomList("সহীহ আল বুখারী ভলিউম ৭","Read details", ()=>PDFViewLoad(assetPdf: 'assets/bukhari/Sahih-Bukharipart-07.pdf')),
-            // CustomList("সহীহ আল বুখারী ভলিউম ৮","Read details", ()=>PDFViewLoad(assetPdf: 'assets/bukhari/Sahih-Bukharipart-08.pdf')),
-            // CustomList("সহীহ আল বুখারী ভলিউম ৯","Read details", ()=>PDFViewLoad(assetPdf: 'assets/bukhari/Sahih-Bukharipart-09.pdf')),
-            // CustomList("সহীহ আল বুখারী ভলিউম ১০","Read details", ()=>PDFViewLoad(assetPdf: 'assets/bukhari/Sahih-Bukharipart-10.pdf')),
+            CustomList("Sahi Al Bukhari Volume-1","Read details", ()=>PDFLoadFromUrl(urlpdf: "https://futureislam.files.wordpress.com/2012/11/sahih-al-bukhari-volume-1-ahadith-0001-875.pdf",)),
+            CustomList("Sahi Al Bukhari Volume-2","Read details", ()=>PDFLoadFromUrl(urlpdf: "https://futureislam.files.wordpress.com/2012/11/sahih-al-bukhari-volume-2-ahadith-876-1772.pdf",)),
+            CustomList("Sahi Al Bukhari Volume-3","Read details", ()=>PDFLoadFromUrl(urlpdf: "https://futureislam.files.wordpress.com/2012/11/sahih-al-bukhari-volume-3-ahadith-1773-2737.pdf",)),
+            CustomList("Sahi Al Bukhari Volume-4","Read details", ()=>PDFLoadFromUrl(urlpdf: "https://futureislam.files.wordpress.com/2012/11/sahih-al-bukhari-volume-4-ahadith-2738-3648.pdf",)),
+            CustomList("Sahi Al Bukhari Volume-5","Read details", ()=>PDFLoadFromUrl(urlpdf: "https://futureislam.files.wordpress.com/2012/11/sahih-al-bukhari-volume-5-ahadith-3649-4473.pdf",)),
+            CustomList("Sahi Al Bukhari Volume-6","Read details", ()=>PDFLoadFromUrl(urlpdf: "https://futureislam.files.wordpress.com/2012/11/sahih-al-bukhari-volume-6-ahadith-4474-5062.pdf",)),
+            CustomList("Sahi Al Bukhari Volume-7","Read details", ()=>PDFLoadFromUrl(urlpdf: "https://futureislam.files.wordpress.com/2012/11/sahih-al-bukhari-volume-7-ahadith-5063-5969.pdf",)),
+            CustomList("Sahi Al Bukhari Volume-8","Read details", ()=>PDFLoadFromUrl(urlpdf: "https://futureislam.files.wordpress.com/2012/11/sahih-al-bukhari-volume-8-ahadith-5970-6860.pdf",)),
+            CustomList("Sahi Al Bukhari Volume-9","Read details", ()=>PDFLoadFromUrl(urlpdf: "https://futureislam.files.wordpress.com/2012/11/sahih-al-bukhari-volume-9-ahadith-6861-7563.pdf",)),
 
           ],
         )

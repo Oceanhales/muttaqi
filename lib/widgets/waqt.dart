@@ -26,9 +26,11 @@ class _WaqtState extends State<Waqt> {
     super.initState();
     var prayerTime=PrayerTime();
     prayerTime.getTodayFajrTime().then((value) {
+      //print(value.microsecondsSinceEpoch);
       setState(() {
         fajar=(value.microsecondsSinceEpoch +1000*60)/1000;
       });
+      print(fajar);
     });
     prayerTime.getTodayDhuhrTime().then((value) {
       setState(() {
@@ -92,6 +94,7 @@ class _WaqtState extends State<Waqt> {
     }else if(currentPrayer=='ASR'){
       setState(() {
         endTime=maghrib.toInt();
+       // print(endTime);
       });
     }else if(currentPrayer=='MAGHRIB'){
       setState(() {

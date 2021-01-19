@@ -9,8 +9,22 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   String calculationMethodName;
+  var calculation;
   List<String>calculationMethod=['KARACHI','DUBAI','EGYPTIAN','KUWAIT',
     'MOON_SIGHTING_COMMITTEE','MUSLIM_WORLD_LEAGUE','NORTH_AMERICA','QATAR','SINGAPORE','UMM_AL_QURA','OTHER'];
+  Future<String>getCalculation()async{
+    SharedPreferences pref=await SharedPreferences.getInstance();
+    return pref.getString('calculationMethod');
+  }
+  @override
+  void initState() {
+    getCalculation().then((value){
+      setState(() {
+        calculation=value;
+      });
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,12 +78,17 @@ class _SettingsState extends State<Settings> {
                   child: GestureDetector(
                     onTap: ()=>setCalculationMethod(context),
                     child: Container(
-                      child: Text(calculationMethodName==null?"MUSLIM_WORLD_LEAGUE":calculationMethodName,style: TextStyle(
+                      child: calculation!=null?Text(calculationMethodName==null?calculation.toString().split('.').last:calculationMethodName,style: TextStyle(
                           color: Colors.cyanAccent,
                           fontSize: 18.0,
                           fontWeight: FontWeight.w400,
                           fontFamily: 'SourceSansPro'
-                      ),),
+                      ),):Text(calculationMethodName==null?"MUSLIM_WORLD_LEAGUE":calculationMethodName,style: TextStyle(
+                          color: Colors.cyanAccent,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'SourceSansPro'
+                      ),)
                     ),
                   )
                 ),
@@ -103,16 +122,9 @@ class _SettingsState extends State<Settings> {
               ],
             ),
           )
-
         ],
       ),
-
-
-
-
     );
-
-
   }
 
   void setCalculationMethod(BuildContext context){
@@ -130,19 +142,19 @@ class _SettingsState extends State<Settings> {
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child:ListView.builder(
-                  itemCount: calculationMethod.length,
+                  itemCount: CalculationMethod.values.length,
                   physics: BouncingScrollPhysics(),
                   itemBuilder: (context,int index){
                     return ListTile(
                       onTap: ()async{
                         SharedPreferences pref=await SharedPreferences.getInstance();
-                        pref.setString('calculationMethod','CalculationMethod.$calculationMethodName');
+                        pref.setString('calculationMethod',CalculationMethod.values[index].toString());
                         setState(() {
-                          calculationMethodName=calculationMethod[index].toString();
+                          calculationMethodName=CalculationMethod.values[index].toString().split(".").last;
                         });
                         Navigator.of(context).pop();
                       },
-                      title: Text(calculationMethod[index].toString(),
+                      title: Text(CalculationMethod.values[index].toString().split(".").last,
                         style: TextStyle(color:Colors.cyanAccent,fontSize: 18,fontWeight: FontWeight.w400),),
                     );
                   },

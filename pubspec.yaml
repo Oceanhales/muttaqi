@@ -46,6 +46,10 @@ dependencies:
   timezone: ^0.5.9
   flutter_native_timezone: ^1.0.4
   advance_pdf_viewer: ^1.2.1+2
+  flutter_svg: ^0.19.0
+  flutter_qiblah: ^1.0.3+2
+  enum_to_string: ^1.0.14
+
 
 dev_dependencies:
   flutter_test:
@@ -69,7 +73,6 @@ flutter:
   assets:
     - assets/spalc.png
     - assets/
-    - assets/bukhari/
     - assets/Fivesalah.html
 
   # An image asset can refer to one or more resolution-specific "variants", see

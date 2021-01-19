@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:muttaqi/pages/hadith.dart';
-import 'package:muttaqi/pages/knowledge';
+import 'package:muttaqi/pages/knowledge.dart';
+import 'package:muttaqi/pages/qiblah.dart';
 import 'package:muttaqi/pages/tasbih.dart';
 import 'package:muttaqi/widgets/category_card.dart';
 
@@ -10,8 +11,6 @@ import 'package:muttaqi/widgets/category_card.dart';
 class MoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context)
-        .size; //this gonna give us total height and with of our device
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       // bottomNavigationBar: BottomNavBar(),
@@ -27,7 +26,7 @@ class MoreScreen extends StatelessWidget {
             children: <Widget>[
               CategoryCard(
                 title: "Knowledge",
-                svgSrc: "assets/spalc.png",
+                svgSrc: "assets/knowledge.png",
                 press: () {
                   Navigator.push(
                     context,
@@ -37,7 +36,7 @@ class MoreScreen extends StatelessWidget {
               ),
               CategoryCard(
                 title: "Tasbih",
-                svgSrc: "assets/spalc.png",
+                svgSrc: "assets/tasbih.png",
                 press: () {
                   Navigator.push(
                     context,
@@ -46,19 +45,19 @@ class MoreScreen extends StatelessWidget {
                 },
               ),
               CategoryCard(
-                title: "Kiblah",
-                svgSrc: "assets/spalc.png",
+                title: "Qibla",
+                svgSrc: "assets/kiblah.png",
 
                 press: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => EmployeeTabControler(),),
-                  // );
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => Qiblah(),),
+                   );
                 },
               ),
               CategoryCard(
                 title: "Hadith",
-                svgSrc: "assets/spalc.png",
+                svgSrc: "assets/hadith.png",
                 press: () {
                   Navigator.push(
                     context,

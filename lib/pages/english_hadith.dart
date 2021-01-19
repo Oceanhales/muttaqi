@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'file:///E:/flutter/muttaqi/lib/widgets/load_html.dart';
 import 'package:muttaqi/widgets/custom_list.dart';
 import 'package:muttaqi/widgets/load_pdf.dart';
 

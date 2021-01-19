@@ -70,7 +70,7 @@ class _SplashPageState extends State<SplashPage> {
       }
       myLocation = null;
     }
-    var currentLocation = myLocation;
+    //var currentLocation = myLocation;
     pref.setDouble('latitude',myLocation.latitude.toDouble() );
     pref.setDouble('longitude', myLocation.longitude.toDouble());
     lat=myLocation.latitude.toString();
@@ -87,9 +87,11 @@ class _SplashPageState extends State<SplashPage> {
     print(' ${first.locality}, ${first.adminArea},${first.subLocality}, ${first
         .subAdminArea},${first.addressLine}, ${first.featureName},${first
         .thoroughfare}, ${first.subThoroughfare}');
-    setState(() {
-      isLoading = false;
-    });
+
+     setState(() {
+       isLoading = false;
+     });
+
     return first;
   }
   void checkInternetConnectionAndNavigate()async{
